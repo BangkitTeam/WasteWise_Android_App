@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.team.wastewise"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.team.wastewise"
