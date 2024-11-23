@@ -58,4 +58,41 @@
     <string name="and"><![CDATA[&]]></string>
     <string name="term_s_use">Term\'s Use</string>
     <string name="privacy_policy">Privacy policy</string>
+    <string name="bg_image_profile">bg_image_profile</string>
+    <string name="setting">Setting</string>
+    <string name="ic_setting">ic_setting</string>
+    <string name="privacy">Privacy</string>
+    <string name="term_and_condition">Term and Condition</string>
+    <string name="about">About</string>
+    <string name="ic_about">ic_about</string>
+    <string name="ic_privacy">ic_privacy</string>
+    <string name="ic_terms">ic_terms</string>
+    <string name="logout">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account_information">Account Information</string>
+    <string name="click_edit_to_update_data">Click edit to update data</string>
+    <string name="edit">Edit</string>
+    <string name="change_the_data_in_provide_form">Change the data in provide form</string>
+    <string name="insert_new_password">Insert New Password</string>
+    <string name="insert_new_email">Insert New Email</string>
+    <string name="insert_new_username">Insert New Username</string>
+    <string name="text_about">
+        WasteWise is an app designed to help people identify waste types and offer creative recycling ideas.
+        Using image classification, we aim to support environmental sustainability.
+        Developed by a team passionate about protecting the environment, this app is a small tool for making a big difference.
+    </string>
+    <string name="text_privacy">We value your privacy and are committed to protecting your personal information.</string>
+    <string name="privacy_data">Data Collected: Uploaded images, names, and email addresses.</string>
+    <string name="privacy_purpose">Purpose: To provide recycling recommendations and improve user experience.</string>
+    <string name="privacy_protection">
+        Data Protection: Your data is securely stored and will not be shared without your consent, except with third-party services that support this app (e.g., analytics services).
+You have the right to request the deletion of your data at any time by contacting us.
+    </string>
+    <string name="text_term">By using this app, you agree to the following terms:</string>
+    <string name="terms_value1">
+        1. Use this app for lawful purposes only.
+    </string>
+    <string name="terms_value2">2. Do not misuse the services for illegal activities or violate the rights of others.</string>
+    <string name="terms_value3">3. Understand that the app developers are not responsible for any decisions made based on the app’s recommendations.</string>
 </resources>
