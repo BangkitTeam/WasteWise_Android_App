@@ -58,4 +58,14 @@
     <string name="and"><![CDATA[&]]></string>
     <string name="term_s_use">Term\'s Use</string>
     <string name="privacy_policy">Privacy policy</string>
+    <string name="bg_image_profile">bg_image_profile</string>
+    <string name="setting">Setting</string>
+    <string name="ic_setting">ic_setting</string>
+    <string name="privacy">Privacy</string>
+    <string name="term_and_condition">Term and Condition</string>
+    <string name="about">About</string>
+    <string name="ic_about">ic_about</string>
+    <string name="ic_privacy">ic_privacy</string>
+    <string name="ic_terms">ic_terms</string>
+    <string name="logout">Logout</string>
 </resources>
