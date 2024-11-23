@@ -1,4 +1,4 @@
-package com.team.wastewise.view.login
+package com.team.wastewise.view.register
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,14 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.team.wastewise.R
-import com.team.wastewise.databinding.ActivityLoginBinding
-import com.team.wastewise.view.register.RegisterActivity
+import com.team.wastewise.databinding.ActivityRegisterBinding
+import com.team.wastewise.view.login.LoginActivity
 
-class LoginActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLoginBinding
+class RegisterActivity : AppCompatActivity() {
+     private lateinit var binding: ActivityRegisterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -22,12 +22,13 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        moveToRegister()
+
+        moveToLogin()
     }
 
-    private fun moveToRegister() {
-        binding.registerNow.setOnClickListener{
-            val intent = Intent(this, RegisterActivity::class.java)
+    private fun moveToLogin() {
+        binding.login.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
