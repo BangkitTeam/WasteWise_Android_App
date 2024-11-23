@@ -73,4 +73,9 @@
     <string name="account_information">Account Information</string>
     <string name="click_edit_to_update_data">Click edit to update data</string>
     <string name="edit">Edit</string>
+    <string name="change_the_data_in_provide_form">Change the data in provide form</string>
+    <string name="insert_new_password">Insert New Password</string>
+    <string name="insert_new_email">Insert New Email</string>
+    <string name="insert_new_username">Insert New Username</string>
+
 </resources>
