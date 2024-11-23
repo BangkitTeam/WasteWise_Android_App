@@ -68,4 +68,9 @@
     <string name="ic_privacy">ic_privacy</string>
     <string name="ic_terms">ic_terms</string>
     <string name="logout">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account_information">Account Information</string>
+    <string name="click_edit_to_update_data">Click edit to update data</string>
+    <string name="edit">Edit</string>
 </resources>
