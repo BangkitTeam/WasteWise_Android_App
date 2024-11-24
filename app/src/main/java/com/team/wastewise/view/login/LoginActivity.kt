@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.team.wastewise.MainActivity
 import com.team.wastewise.R
 import com.team.wastewise.databinding.ActivityLoginBinding
 import com.team.wastewise.view.register.RegisterActivity
@@ -23,11 +24,22 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
         moveToRegister()
+
+        //TODO: Login (Logic sementara)
+        moveToHome()
+
     }
 
     private fun moveToRegister() {
         binding.registerNow.setOnClickListener{
             val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun moveToHome() {
+        binding.loginButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
