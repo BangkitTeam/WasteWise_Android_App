@@ -113,4 +113,5 @@ You have the right to request the deletion of your data at any time by contactin
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
     <string name="upload">Upload</string>
+    <string name="analyze">Analyze</string>
 </resources>
