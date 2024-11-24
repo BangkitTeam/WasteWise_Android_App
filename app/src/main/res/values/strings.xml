@@ -99,4 +99,8 @@ You have the right to request the deletion of your data at any time by contactin
     <string name="welcome_heading">Welcome to WasteWise</string>
     <string name="welcome_description">Discover the power of recycling and unleash your creativity. Start classifying waste and turn it into amazing crafts. Together, we make the world cleaner and greener!</string>
     <string name="start_here">Start Here</string>
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_history">History</string>
 </resources>

@@ -14,16 +14,19 @@
         tools:targetApi="31">
         <activity
             android:name=".view.login.LoginActivity"
+            android:theme="@style/Theme.WasteWise.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".view.register.RegisterActivity"
+            android:theme="@style/Theme.WasteWise.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".view.GitTesting"
-            android:exported="false"
-            android:theme="@style/Theme.WasteWise" />
+            android:theme="@style/Theme.WasteWise"
+            android:exported="false"/>
         <activity
             android:name=".view.welcome.WelcomeActivity"
+            android:theme="@style/Theme.WasteWise.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +36,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.WasteWise"
             android:exported="true" />
     </application>
 
