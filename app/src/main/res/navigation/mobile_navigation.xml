@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.team.wastewise.view.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_uploadFragment"
+            app:destination="@id/navigation_upload" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_favorite"
@@ -22,4 +26,10 @@
         android:name="com.team.wastewise.view.history.HistoryFragment"
         android:label="@string/title_history"
         tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/navigation_upload"
+        android:name="com.team.wastewise.view.upload.UploadFragment"
+        android:label="@string/upload"
+        tools:layout="@layout/fragment_upload" />
 </navigation>

@@ -11,7 +11,8 @@
 
     <!-- Base theme without Action Bar -->
     <style name="Theme.WasteWise.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- No customization required for no action bar -->
+
+        <item name="colorPrimary">#4CAF50</item>
     </style>
 
     <style name="Theme.WasteWise" parent="Base.Theme.WasteWise" />
