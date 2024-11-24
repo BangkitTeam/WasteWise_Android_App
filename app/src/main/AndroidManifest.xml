@@ -36,7 +36,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.WasteWise"
+            android:theme="@style/Theme.WasteWise.NoActionBar"
             android:exported="true" />
     </application>
 
