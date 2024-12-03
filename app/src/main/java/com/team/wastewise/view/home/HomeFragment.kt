@@ -15,6 +15,14 @@ class HomeFragment : Fragment() {
     private val homeViewModel by viewModels<HomeViewModel>()
     private var _binding: FragmentHomeBinding? = null
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.homeFab.setOnClickListener {
+            val action = HomeFragmentDirections.actionNavigationHomeToUploadFragment()
+            findNavController().navigate(action)
+        }
+    }
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -30,20 +38,10 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
         return root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.homeFab.setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToUploadFragment()
-            findNavController().navigate(action)
-        }
-    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
