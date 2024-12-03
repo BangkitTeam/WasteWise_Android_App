@@ -21,6 +21,10 @@
             android:theme="@style/Theme.WasteWise.NoActionBar"
             android:exported="false" />
         <activity
+            android:name=".view.profile.ProfileActivity"
+            android:theme="@style/Theme.WasteWise.NoActionBar"
+            android:exported="false" />
+        <activity
             android:name=".view.GitTesting"
             android:theme="@style/Theme.WasteWise"
             android:exported="false"/>

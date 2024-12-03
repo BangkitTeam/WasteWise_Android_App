@@ -103,7 +103,11 @@ You have the right to request the deletion of your data at any time by contactin
     <string name="title_home">Home</string>
     <string name="title_favorite">Favorite</string>
     <string name="title_history">History</string>
-    <string name="account">Account</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="history">History</string>
+
     <string name="image_home">image_home</string>
     <string name="take_a_photo_of_waste">Take a Photo of Waste</string>
     <string name="snap_a_photo_of_the_waste_to_identify_its_type_and_discover_creative_craft_ideas">Snap a photo of the waste to identify its type and discover creative craft ideas!</string>
