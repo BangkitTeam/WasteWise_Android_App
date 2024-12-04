@@ -124,4 +124,8 @@ You have the right to request the deletion of your data at any time by contactin
     <string name="judul">Title</string>
     <string name="description">Description</string>
     <string name="image_item_result">image_item_result</string>
+
+    <string name="empty_name">Name cannot be empty</string>
+    <string name="empty_email">Email cannot be empty</string>
+    <string name="empty_password">Password cannot be empty</string>
 </resources>
