@@ -9,18 +9,23 @@ import com.team.wastewise.data.Result
 
 class Repository private constructor(
     private val apiService: ApiService
-){
+) {
 
     // Function to register a new user
     suspend fun register(username: String, email: String, password: String): Result<RegisterResponse> {
         return withContext(Dispatchers.IO) { // Use Dispatchers.IO for network calls
             try {
-                // Make the network request using Retrofit
-                val response = apiService.register(username, email, password)
+                // Create the request body
+                val request = ApiService.RegisterRequest(
+                    username = username,
+                    email = email,
+                    password = password
+                )
 
-                // Check if the response is successful
-                // In this case, Retrofit's default behavior handles it
-                // Success case
+                // Make the network request using Retrofit
+                val response = apiService.register(request)
+
+                // Return success with the response
                 Result.Success(response)
             } catch (e: HttpException) {
                 // Handle HTTP errors (e.g., 400, 500 status codes)
@@ -37,7 +42,6 @@ class Repository private constructor(
         @Volatile
         private var INSTANCE: Repository? = null
 
-        // Provide a single instance of the Repository
         fun getInstance(apiService: ApiService): Repository =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: Repository(apiService)
