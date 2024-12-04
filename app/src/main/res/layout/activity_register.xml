@@ -40,7 +40,7 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="@dimen/margin_extra_large"
-        android:layout_marginTop="@dimen/margin_extra_large"
+        android:layout_marginTop="@dimen/margin_large"
         android:layout_marginEnd="@dimen/margin_extra_large"
         android:hint="@string/username"
         app:boxStrokeColor="@color/black"
