@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import com.team.wastewise.data.Result
+import com.team.wastewise.data.remote.response.LoginResponse
 
 class Repository private constructor(
     private val apiService: ApiService
@@ -36,6 +37,32 @@ class Repository private constructor(
             }
         }
     }
+
+    // Function to log in a user and handle API response
+    suspend fun login(email: String, password: String): Result<LoginResponse> {
+        return withContext(Dispatchers.IO) { // Use Dispatchers.IO for network calls
+            try {
+                // Create the request body
+                val request = ApiService.LoginRequest(
+                    email = email,
+                    password = password
+                )
+
+                // Make the network request using Retrofit
+                val response = apiService.login(request)
+
+                // Return success with the response
+                Result.Success(response)
+            } catch (e: HttpException) {
+                // Handle HTTP errors (e.g., 400, 500 status codes)
+                Result.Error("HTTP error: ${e.message()}")
+            } catch (e: Exception) {
+                // Handle unexpected errors (e.g., network issues)
+                Result.Error("Unexpected error: ${e.message}")
+            }
+        }
+    }
+
 
     // Singleton pattern to provide a single instance of the Repository
     companion object {
