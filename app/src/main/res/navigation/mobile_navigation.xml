@@ -31,12 +31,22 @@
         android:id="@+id/navigation_upload"
         android:name="com.team.wastewise.view.upload.UploadFragment"
         android:label="@string/upload"
-        tools:layout="@layout/fragment_upload" />
+        tools:layout="@layout/fragment_upload" >
+        <action
+            android:id="@+id/action_navigation_upload_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.team.wastewise.view.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.team.wastewise.view.result.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
 
 </navigation>

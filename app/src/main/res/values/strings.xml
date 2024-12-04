@@ -118,4 +118,10 @@ You have the right to request the deletion of your data at any time by contactin
     <string name="gallery">Gallery</string>
     <string name="upload">Upload</string>
     <string name="analyze">Analyze</string>
+    <string name="image_result">image_result</string>
+    <string name="result">Result</string>
+    <string name="recycle_recommendation">Recycle Recommendation</string>
+    <string name="judul">Title</string>
+    <string name="description">Description</string>
+    <string name="image_item_result">image_item_result</string>
 </resources>
