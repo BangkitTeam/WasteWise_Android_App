@@ -18,7 +18,6 @@ import com.team.wastewise.view.register.RegisterActivity
 import kotlinx.coroutines.launch
 import com.team.wastewise.data.Result
 
-
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
@@ -42,29 +41,10 @@ class LoginActivity : AppCompatActivity() {
 
         sessionManager = SessionManager(this) // SessionManager for managing user sessions
 
-
-
-        moveToRegister()
-
-        //TODO: Login (Logic sementara)
-        moveToHome()
-
         setupClickListeners() // Sets up UI event listeners
         observeViewModel() // Observes ViewModel LiveData for updates
 
     }
-
-    private fun moveToRegister() {
-
-    }
-
-    private fun moveToHome() {
-        binding.loginButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
 
     private fun setupClickListeners() {
         // Navigates to Register screen.
@@ -133,7 +113,7 @@ class LoginActivity : AppCompatActivity() {
                 is Result.Error -> {
                     showLoading(false)
                     // Show a Toast message for error
-                    Toast.makeText(this, "Registration failed: ${result.error}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Login failed, check your username & password!", Toast.LENGTH_SHORT).show()
                 }
             }
         }

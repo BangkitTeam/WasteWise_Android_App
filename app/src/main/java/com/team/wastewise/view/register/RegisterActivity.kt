@@ -117,7 +117,6 @@ class RegisterActivity : AppCompatActivity() {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-
     private fun moveToLogin() {
         binding.login.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
