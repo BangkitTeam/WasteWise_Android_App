@@ -1,4 +1,3 @@
-/*
 package com.team.wastewise.view.login
 
 import androidx.lifecycle.LiveData
@@ -8,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.team.wastewise.data.remote.Repository
 import com.team.wastewise.data.remote.response.LoginResponse
 import kotlinx.coroutines.launch
+import com.team.wastewise.data.Result
+
 
 // ViewModel for handling login logic and managing UI-related data in a lifecycle-aware way
 class LoginViewModel(private val repository: Repository) : ViewModel() {
@@ -38,4 +39,3 @@ class LoginViewModel(private val repository: Repository) : ViewModel() {
         }
     }
 }
-*/

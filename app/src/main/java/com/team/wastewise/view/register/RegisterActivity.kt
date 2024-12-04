@@ -57,12 +57,13 @@ class RegisterActivity : AppCompatActivity() {
             showLoading(isLoading)
         }
 
-// Observe registration result and handle success/error scenarios.
+        // Observe registration result and handle success/error scenarios.
         registerViewModel.registerResult.observe(this) { result ->
             when (result) {
                 is Result.Loading -> showLoading(true)
                 is Result.Success -> {
                     showLoading(false)
+
                     // Show a Toast message for success
                     Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
 

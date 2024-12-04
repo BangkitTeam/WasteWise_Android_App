@@ -31,7 +31,7 @@ interface ApiService {
     @POST("auth/register")
     suspend fun register(@Body request: RegisterRequest): RegisterResponse
 
-    @POST("login")
+    @POST("auth/login")
     suspend fun login(@Body loginRequest: LoginRequest): LoginResponse
 
     // Data classes for the requests
