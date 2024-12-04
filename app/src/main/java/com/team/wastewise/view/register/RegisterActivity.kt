@@ -63,6 +63,9 @@ class RegisterActivity : AppCompatActivity() {
                 is Result.Loading -> showLoading(true)
                 is Result.Success -> {
                     showLoading(false)
+                    // Show a Toast message for success
+                    Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
+
                     // Navigate to LoginActivity on successful registration.
                     val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(intent)
@@ -70,6 +73,8 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 is Result.Error -> {
                     showLoading(false)
+                    // Show a Toast message for error
+                    Toast.makeText(this, "Registration failed: ${result.error}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
