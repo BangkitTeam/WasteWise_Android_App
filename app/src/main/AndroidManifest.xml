@@ -17,14 +17,17 @@
         <activity
             android:name=".view.login.LoginActivity"
             android:theme="@style/Theme.WasteWise.NoActionBar"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.register.RegisterActivity"
             android:theme="@style/Theme.WasteWise.NoActionBar"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.profile.ProfileActivity"
             android:theme="@style/Theme.WasteWise.NoActionBar"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.GitTesting"
@@ -33,6 +36,7 @@
         <activity
             android:name=".view.welcome.WelcomeActivity"
             android:theme="@style/Theme.WasteWise.NoActionBar"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +47,9 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.WasteWise.NoActionBar"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 
 </manifest>

@@ -70,7 +70,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navigation_upload -> {
                     binding.topAppBar.menu.clear() // Clear menu for upload fragment
-                    binding.topAppBar.title = "" // Clear title for upload fragment
+                    binding.topAppBar.title = "Upload" // Clear title for upload fragment
+                }
+                R.id.resultFragment -> {
+                    binding.topAppBar.title = "Result"
                 }
                 else -> {
                     binding.topAppBar.title = getString(R.string.app_name) // Default title
