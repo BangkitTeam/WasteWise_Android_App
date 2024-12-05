@@ -1,6 +1,8 @@
 package com.team.wastewise.data.remote.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class FileUploadResponse(
 
@@ -8,7 +10,9 @@ data class FileUploadResponse(
 	val file: UploadedFile,
 
 	@field:SerializedName("message")
-	val message: String
+	val message: String,
+
+	val data: Data
 )
 
 data class 	UploadedFile(
@@ -37,3 +41,19 @@ data class 	UploadedFile(
 	@field:SerializedName("userId")
 	val userId: Int
 )
+
+@Parcelize
+data class Data(
+	val user_id: Int,
+	val image_url: String,
+	val confidence: Int,
+	val prediction: String,
+	val recommendations: List<Recommendation>
+): Parcelable
+
+@Parcelize
+data class Recommendation(
+	val title: String,
+	val description: String,
+	val imageUrl: String
+): Parcelable

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.team.wastewise.data.remote.UploadRepository
 import com.team.wastewise.di.Injection
+import com.team.wastewise.view.result.ResultViewModel
 import com.team.wastewise.view.upload.UploadViewModel
 
 class ViewModelFactory(
@@ -16,6 +17,9 @@ class ViewModelFactory(
         return when {
             modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
                 UploadViewModel(uploadRepository) as T
+            }
+            modelClass.isAssignableFrom(ResultViewModel::class.java) -> {
+                ResultViewModel() as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

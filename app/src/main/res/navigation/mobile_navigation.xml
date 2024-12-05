@@ -47,6 +47,7 @@
         android:id="@+id/resultFragment"
         android:name="com.team.wastewise.view.result.ResultFragment"
         android:label="fragment_result"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result" >
+    </fragment>
 
 </navigation>

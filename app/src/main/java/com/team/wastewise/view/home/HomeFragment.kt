@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.team.wastewise.R
 import com.team.wastewise.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -17,6 +19,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.homeFab.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToUploadFragment()
             findNavController().navigate(action)
@@ -40,8 +43,6 @@ class HomeFragment : Fragment() {
 
         return root
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()
