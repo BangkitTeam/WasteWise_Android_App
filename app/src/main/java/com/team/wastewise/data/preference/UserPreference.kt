@@ -1,6 +1,7 @@
 package com.team.wastewise.data.preference
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -27,7 +28,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             UserModel(
                 preferences[EMAIL_KEY] ?: "",
                 //Hard Code user Token
-                preferences[TOKEN_KEY] ?: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJrdWt1aCIsImVtYWlsIjoia3VrdWhAZ21haWwuY29tIiwiaWF0IjoxNzMzMzMzNzgwLCJleHAiOjE3MzM0MjAxODB9.R0BVDaQwX3bnCSFvG-zE-iGcbSVImcYO9ZzVk_ILHVs",
+                preferences[TOKEN_KEY] ?: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJkaXJhIiwiZW1haWwiOiJrdWt1aGgua3NAZ21haWwuY29tIiwiaWF0IjoxNzMzNDk4NjY3LCJleHAiOjE3MzM1ODUwNjd9.fAZck4pf7bUQv7Qjvyi1nhzwfZbCNPKdiJlV5ZyDkvI",
                 preferences[IS_LOGIN_KEY] ?: false
             )
         }
