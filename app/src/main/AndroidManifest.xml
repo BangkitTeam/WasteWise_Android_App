@@ -22,6 +22,7 @@
             android:exported="false" />
         <activity
             android:name=".view.profile.AboutActivity"
+            android:theme="@style/Theme.WasteWise.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".view.login.LoginActivity"
