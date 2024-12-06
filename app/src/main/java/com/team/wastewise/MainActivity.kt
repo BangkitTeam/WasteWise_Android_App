@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                     binding.topAppBar.title = "Upload" // Clear title for upload fragment
                 }
                 R.id.resultFragment -> {
-                    binding.topAppBar.title = "Result"
+                    supportActionBar?.hide()
                 }
                 else -> {
                     binding.topAppBar.title = getString(R.string.app_name) // Default title

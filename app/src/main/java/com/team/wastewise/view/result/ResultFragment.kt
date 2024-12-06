@@ -1,17 +1,22 @@
 package com.team.wastewise.view.result
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toolbar
+import androidx.activity.addCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.navArgs
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.team.wastewise.MainActivity
 import com.team.wastewise.R
 import com.team.wastewise.data.remote.response.Data
 import com.team.wastewise.data.remote.response.Recommendation
@@ -38,6 +43,14 @@ class ResultFragment : Fragment() {
         // Hide the BottomNavigationView when viewing the result fragment.
         val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
         bottomNavigationView.visibility = View.GONE
+
+        binding.toolbar.apply {
+            title = "Result"
+            setNavigationIcon(R.drawable.ic_back)
+            setNavigationOnClickListener {
+                navigateToMainActivity()
+            }
+        }
 
         // Set up the RecyclerView with a vertical layout manager and the adapter.
         binding.resultRecyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -73,12 +86,26 @@ class ResultFragment : Fragment() {
 
         // Observe changes in the main data and update the UI with the results.
         viewModel.data.observe(viewLifecycleOwner) { resultData ->
-            Glide.with(this)  // Use Glide to load and display the image.
-                .load(resultData?.image_url)
-                .into(binding.imageResult)
-            // Update confidence and prediction text views
-            binding.resultValueConfidence.text = "${resultData?.confidence}%"
-            binding.resultValuePrediction.text = resultData?.prediction
+            if (resultData?.confidence!! < 75) {
+                binding.warningConfidenceScore.visibility = View.VISIBLE
+                binding.warningConfidenceScore.text = """
+                Confidence Score
+                to Small, Try Again
+                with another Image.
+                """.trimIndent()
+                Glide.with(this)  // Use Glide to load and display the image.
+                    .load(resultData.image_url)
+                    .into(binding.imageResult)
+                binding.resultValueConfidence.visibility = View.GONE
+                binding.resultValuePrediction.visibility = View.GONE
+            } else {
+                Glide.with(this)  // Use Glide to load and display the image.
+                    .load(resultData.image_url)
+                    .into(binding.imageResult)
+                // Update confidence and prediction text views
+                binding.resultValueConfidence.text = "${resultData.confidence}%"
+                binding.resultValuePrediction.text = resultData.prediction
+            }
         }
 
         // Observe recommendations and pass them to the adapter to update the RecyclerView.
@@ -87,6 +114,13 @@ class ResultFragment : Fragment() {
                 adapter.submitList(recommendation)  // Update adapter's data.
             }
         }
+    }
+
+    private fun navigateToMainActivity() {
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        requireActivity().finish() // Menutup aktivitas fragment saat ini
     }
 
     override fun onDestroyView() {
