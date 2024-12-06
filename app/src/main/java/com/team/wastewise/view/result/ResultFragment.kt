@@ -89,15 +89,18 @@ class ResultFragment : Fragment() {
             if (resultData?.confidence!! < 75) {
                 binding.warningConfidenceScore.visibility = View.VISIBLE
                 binding.warningConfidenceScore.text = """
-                Confidence Score
-                to Small, Try Again
-                with another Image.
+                Threshold Score is
+                below the Standard,
+                Try Again with 
+                another Image.
                 """.trimIndent()
                 Glide.with(this)  // Use Glide to load and display the image.
                     .load(resultData.image_url)
                     .into(binding.imageResult)
                 binding.resultValueConfidence.visibility = View.GONE
                 binding.resultValuePrediction.visibility = View.GONE
+                binding.resultRecyclerView.visibility = View.GONE
+                binding.recycleRecommendationWarning.visibility = View.VISIBLE
             } else {
                 Glide.with(this)  // Use Glide to load and display the image.
                     .load(resultData.image_url)
