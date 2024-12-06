@@ -15,29 +15,38 @@
         android:theme="@style/Theme.WasteWise"
         tools:targetApi="31">
         <activity
-            android:name=".view.login.LoginActivity"
-            android:theme="@style/Theme.WasteWise.NoActionBar"
-            android:screenOrientation="portrait"
+            android:name=".view.profile.PolicyActivity"
             android:exported="false" />
+        <activity
+            android:name=".view.profile.TermUseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.profile.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.WasteWise.NoActionBar" />
         <activity
             android:name=".view.register.RegisterActivity"
-            android:theme="@style/Theme.WasteWise.NoActionBar"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:exported="false" />
+            android:theme="@style/Theme.WasteWise.NoActionBar" />
         <activity
             android:name=".view.profile.ProfileActivity"
-            android:theme="@style/Theme.WasteWise.NoActionBar"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:exported="false" />
+            android:theme="@style/Theme.WasteWise.NoActionBar" />
         <activity
             android:name=".view.GitTesting"
-            android:theme="@style/Theme.WasteWise"
-            android:exported="false"/>
+            android:exported="false"
+            android:theme="@style/Theme.WasteWise" />
         <activity
             android:name=".view.welcome.WelcomeActivity"
-            android:theme="@style/Theme.WasteWise.NoActionBar"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:exported="true">
+            android:theme="@style/Theme.WasteWise.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,9 +55,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.WasteWise.NoActionBar"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.WasteWise.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
     </application>
 
