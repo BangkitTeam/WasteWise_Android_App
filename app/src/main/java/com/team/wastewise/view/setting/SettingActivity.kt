@@ -45,9 +45,9 @@ class SettingActivity : AppCompatActivity() {
 
     private fun setupObservers() {
         settingViewModel.userSettings.observe(this) { settings ->
-            binding.usernameEditText.setText(settings.username)
-            binding.emailEditText.setText(settings.email)
-            binding.passwordEditText.setText(settings.password)
+            binding.usernameText.setText(settings.username)
+            binding.emailText.setText(settings.email)
+            binding.passwordText.setText(settings.password)
         }
 
         settingViewModel.errorMessage.observe(this) { error ->
