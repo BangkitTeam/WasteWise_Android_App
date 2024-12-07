@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.team.wastewise.R
 import com.team.wastewise.databinding.ActivityProfileBinding
+import com.team.wastewise.view.login.LoginActivity
 import com.team.wastewise.view.setting.SettingActivity
 
 class ProfileActivity : AppCompatActivity() {
@@ -48,7 +49,7 @@ class ProfileActivity : AppCompatActivity() {
 
         // Logout button action
         binding.btnLogout.setOnClickListener {
-            Toast.makeText(this, getString(R.string.logged_out_message), Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }
