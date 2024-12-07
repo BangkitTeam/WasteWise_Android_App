@@ -5,12 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team.wastewise.R
-import com.team.wastewise.data.remote.response.Data
 import com.team.wastewise.data.remote.response.Recommendation
 import com.team.wastewise.databinding.FragmentDetailRecommendationBinding
 import com.team.wastewise.view.ViewModelFactory
@@ -21,6 +19,7 @@ class DetailRecommendationFragment : Fragment() {
     private var _binding: FragmentDetailRecommendationBinding? = null
     private val binding get() = _binding!!
 
+    // ViewModel for managing UI-related data in a lifecycle-conscious way.
     private val viewModel by viewModels<DetailRecommendationViewModel> {
         ViewModelFactory.getInstance(requireContext())
     }
@@ -41,11 +40,7 @@ class DetailRecommendationFragment : Fragment() {
         val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
         bottomNavigationView.visibility = View.GONE
 
-//        val mainActivity = requireActivity() as AppCompatActivity
-//        mainActivity.supportActionBar?.apply {
-//            setDisplayHomeAsUpEnabled(true)
-//            setHomeAsUpIndicator(R.drawable.ic_back)
-//        }
+
         binding.toolbar.apply {
             title = "Detail Recommendation"
             setNavigationIcon(R.drawable.ic_back)
@@ -54,6 +49,7 @@ class DetailRecommendationFragment : Fragment() {
             }
         }
 
+        // Retrieve data passed through navigation arguments.
         val data = arguments?.getParcelable<Recommendation>("recommendation_data")
         data?.let { resultData ->
             viewModel.setData(resultData) // Update ViewModel with the new data
