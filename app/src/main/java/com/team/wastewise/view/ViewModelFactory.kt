@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.team.wastewise.data.remote.UploadRepository
 import com.team.wastewise.di.Injection
+import com.team.wastewise.view.detail.DetailRecommendationViewModel
 import com.team.wastewise.view.result.ResultViewModel
 import com.team.wastewise.view.upload.UploadViewModel
 
@@ -20,6 +21,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(ResultViewModel::class.java) -> {
                 ResultViewModel() as T
+            }
+            modelClass.isAssignableFrom(DetailRecommendationViewModel::class.java) -> {
+                DetailRecommendationViewModel() as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

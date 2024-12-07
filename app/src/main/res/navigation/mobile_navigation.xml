@@ -34,7 +34,7 @@
         tools:layout="@layout/fragment_upload" >
         <action
             android:id="@+id/action_navigation_upload_to_resultFragment"
-            app:destination="@id/resultFragment" />
+            app:destination="@id/navigation_result" />
     </fragment>
 
     <fragment
@@ -44,10 +44,18 @@
         tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/resultFragment"
+        android:id="@+id/navigation_result"
         android:name="com.team.wastewise.view.result.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_navigation_result_to_navigation_detail_recommendation"
+            app:destination="@id/navigation_detail_recommendation" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_detail_recommendation"
+        android:name="com.team.wastewise.view.detail.DetailRecommendationFragment"
+        android:label="Detail Recommendation"
+        tools:layout="@layout/fragment_detail_recommendation" />
 
 </navigation>
