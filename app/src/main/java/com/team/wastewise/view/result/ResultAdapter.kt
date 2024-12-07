@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.team.wastewise.data.remote.response.Recommendation
 import com.team.wastewise.databinding.RecyclerViewItemResultBinding
 
-class ResultAdapter : ListAdapter<Recommendation, ResultAdapter.ViewHolder>(DiffCallback()){
+class ResultAdapter(private val listener: OnItemClickListener) : ListAdapter<Recommendation, ResultAdapter.ViewHolder>(DiffCallback()){
 
     // Creates and returns a ViewHolder for a single RecyclerView item.
     override fun onCreateViewHolder(
@@ -18,7 +18,7 @@ class ResultAdapter : ListAdapter<Recommendation, ResultAdapter.ViewHolder>(Diff
     ): ViewHolder {
         // Inflate the item layout using data binding.
         val binding = RecyclerViewItemResultBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
+        return ViewHolder(binding, listener)
     }
 
     // Binds data from a Recommendation object to the ViewHolder.
@@ -27,9 +27,16 @@ class ResultAdapter : ListAdapter<Recommendation, ResultAdapter.ViewHolder>(Diff
         holder.bind(item) // Bind the data to the ViewHolder.
     }
 
-    class ViewHolder(private val binding: RecyclerViewItemResultBinding ) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(
+        private val binding: RecyclerViewItemResultBinding,
+        private val listener: OnItemClickListener
+    ) : RecyclerView.ViewHolder(binding.root) {
         // Populates the views with data from the given Recommendation object.
         fun bind(result: Recommendation) {
+            // Handle the click
+            itemView.setOnClickListener {
+                listener.onItemClick(result)
+            }
             // Load the image into the ImageView using Glide.
             Glide.with(binding.root.context)
                 .load(result.imageUrl)
@@ -51,5 +58,9 @@ class ResultAdapter : ListAdapter<Recommendation, ResultAdapter.ViewHolder>(Diff
         override fun areContentsTheSame(oldItem: Recommendation, newItem: Recommendation): Boolean {
             return oldItem == newItem // Uses equals() to compare all fields.
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(result: Recommendation)
     }
 }

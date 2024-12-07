@@ -3,14 +3,11 @@ package com.team.wastewise.view.result
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
 import androidx.activity.addCallback
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +20,7 @@ import com.team.wastewise.data.remote.response.Recommendation
 import com.team.wastewise.databinding.FragmentResultBinding
 import com.team.wastewise.view.ViewModelFactory
 
-class ResultFragment : Fragment() {
+class ResultFragment : Fragment(), ResultAdapter.OnItemClickListener {
     // Binding for the fragment's layout. Nullable to handle lifecycle management properly.
     private var _binding : FragmentResultBinding? = null
     private val binding get() = _binding!!
@@ -34,7 +31,7 @@ class ResultFragment : Fragment() {
     }
 
     // Adapter for displaying a list of recommendations in the RecyclerView.
-    private val adapter = ResultAdapter()
+    private val adapter = ResultAdapter(this)
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,6 +47,10 @@ class ResultFragment : Fragment() {
             setNavigationOnClickListener {
                 navigateToMainActivity()
             }
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            navigateToMainActivity()
         }
 
         // Set up the RecyclerView with a vertical layout manager and the adapter.
@@ -108,6 +109,7 @@ class ResultFragment : Fragment() {
                 // Update confidence and prediction text views
                 binding.resultValueConfidence.text = "${resultData.confidence}%"
                 binding.resultValuePrediction.text = resultData.prediction
+                binding.recycleRecommendationWarning.visibility = View.GONE
             }
         }
 
@@ -135,5 +137,12 @@ class ResultFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null // Nullify binding reference for additional safety.
+    }
+
+    override fun onItemClick(result: Recommendation) {
+        val bundle = Bundle().apply {
+            putParcelable("recommendation_data", result)
+        }
+        findNavController().navigate(R.id.action_navigation_result_to_navigation_detail_recommendation, bundle)
     }
 }

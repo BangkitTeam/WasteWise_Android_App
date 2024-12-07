@@ -37,16 +37,19 @@
 
     <TextView
         android:id="@+id/tv_item_description"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="84dp"
         android:text="@string/description"
+        android:maxLines="1"
         android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="@+id/tv_item_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_item_name"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/image_item_result"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
