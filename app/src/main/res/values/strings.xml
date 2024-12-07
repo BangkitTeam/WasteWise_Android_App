@@ -138,6 +138,12 @@ You have the right to request the deletion of your data at any time by contactin
     <string name="privacy_policy_title">Privacy Policy</string>
     <string name="privacy_policy_content">At WasteWise, your privacy is our priority. We collect and use your data to improve the app\'s performance, personalize your experience, and enhance waste classification accuracy.\n\nWhat We Collect:\n- Basic user information (e.g., email, username).\n- Images you upload for waste classification.\n- App usage statistics to improve features.\n\nHow We Use It:\n- To provide accurate waste classification results.\n- To personalize app features and recommendations.\n- To maintain and secure your account.\n\nWe do not sell your data to third parties. Any shared information will always be anonymized and used responsibly. For detailed policies, visit our website or contact support.</string>
     <string name="logged_out_message">You successfully logout.</string>
+<<<<<<< HEAD
     <string name="nothing_to_show">Nothing to Show</string>
+=======
+    
+    <string name="account_info">Account Information</string>
+    <string name="account_info_description">Click edit to update data</string>
+>>>>>>> 2a6bc67 (feat(setting): adding setting layout)
 
 </resources>
