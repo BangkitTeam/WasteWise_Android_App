@@ -142,10 +142,5 @@ You have the right to request the deletion of your data at any time by contactin
     <string name="nothing_to_show">Nothing to Show</string>
     <string name="account_info">Account Information</string>
     <string name="account_info_description">Click edit to update data</string>
-    <string name="account_info">Account Information</string>
-    <string name="account_info_description">Click edit to update data</string>
-
-    <string name="account_info">Account Information</string>
-    <string name="account_info_description">Click edit to update data</string>
 
 </resources>
