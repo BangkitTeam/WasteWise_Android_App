@@ -52,6 +52,10 @@ class ResultFragment : Fragment() {
             }
         }
 
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            navigateToMainActivity()
+        }
+
         // Set up the RecyclerView with a vertical layout manager and the adapter.
         binding.resultRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.resultRecyclerView.adapter = adapter
