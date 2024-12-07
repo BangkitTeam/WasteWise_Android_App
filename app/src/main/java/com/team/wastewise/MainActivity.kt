@@ -14,12 +14,15 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team.wastewise.databinding.ActivityMainBinding
+import com.team.wastewise.pref.SessionManager
+import com.team.wastewise.view.login.LoginActivity
 import com.team.wastewise.view.profile.ProfileActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,7 +94,6 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.appbar_menu, menu)
         return true
     }
-
 
     // Handle clicks on toolbar menu items
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
