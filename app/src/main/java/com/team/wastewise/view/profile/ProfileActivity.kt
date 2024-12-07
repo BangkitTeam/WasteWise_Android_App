@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.team.wastewise.R
 import com.team.wastewise.databinding.ActivityProfileBinding
+import com.team.wastewise.view.setting.SettingActivity
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
@@ -27,7 +28,7 @@ class ProfileActivity : AppCompatActivity() {
 
         // Navigate to Settings
         binding.clickableSetting.setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
+            startActivity(Intent(this, SettingActivity::class.java))
         }
 
         // Navigate to About
