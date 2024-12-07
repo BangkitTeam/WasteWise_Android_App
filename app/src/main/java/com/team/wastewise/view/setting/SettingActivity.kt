@@ -1,9 +1,11 @@
 package com.team.wastewise.view.setting
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.team.wastewise.R
 import com.team.wastewise.data.preference.UserPreference
 import com.team.wastewise.data.remote.retrofit.ApiConfig
 import com.team.wastewise.databinding.ActivitySettingBinding
@@ -28,6 +30,11 @@ class SettingActivity : AppCompatActivity() {
 
         // Fetch settings
         settingViewModel.fetchUserSettings()
+
+        // Set up the toolbar
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.setting)
     }
 
     private fun setupToolbar() {
@@ -45,6 +52,18 @@ class SettingActivity : AppCompatActivity() {
 
         settingViewModel.errorMessage.observe(this) { error ->
             Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // Override onOptionsItemSelected to handle the back button press
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                // Navigate back
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
