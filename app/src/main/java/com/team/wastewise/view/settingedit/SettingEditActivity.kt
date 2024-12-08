@@ -1,4 +1,4 @@
-package com.team.wastewise.view.setting
+package com.team.wastewise.view.settingedit
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
