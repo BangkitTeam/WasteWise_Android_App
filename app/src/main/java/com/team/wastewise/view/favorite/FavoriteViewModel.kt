@@ -1,25 +1,19 @@
 package com.team.wastewise.view.favorite
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.team.wastewise.data.remote.FavoriteRepository
-import com.team.wastewise.data.remote.response.FavoriteData
 import com.team.wastewise.data.remote.response.FavoriteItem
-import com.team.wastewise.data.remote.response.FavoriteResponse
 import kotlinx.coroutines.launch
 
 class FavoriteViewModel(
     private val favoriteRepository: FavoriteRepository // Repository to handle image upload operations.
 ) : ViewModel() {
 
-//    private val _text = MutableLiveData<String>().apply {
-//        value = "This is favorite Fragment"
-//    }
-//    val text: LiveData<String> = _text
-
+    // MediatorLiveData to observe and transform data from other LiveData objects,
+    // specifically extracting favorite from the main data.
     private val _getAllFavorite = MutableLiveData<Result<List<FavoriteItem>>>()
     val getAllFavorite: LiveData<Result<List<FavoriteItem>>> = _getAllFavorite
 

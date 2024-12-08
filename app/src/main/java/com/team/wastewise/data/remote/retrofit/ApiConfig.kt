@@ -1,6 +1,7 @@
 package com.team.wastewise.data.remote.retrofit
 
 import com.team.wastewise.data.preference.UserPreference
+import com.team.wastewise.pref.SessionManager
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
@@ -12,11 +13,11 @@ import java.util.concurrent.TimeUnit
 
 class ApiConfig {
     companion object {
-        fun getApiService(userPreference: UserPreference) : ApiService {
+        fun getApiService(sessionManager: SessionManager) : ApiService {
             val loggingInterceptor =
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             val authInterceptor = Interceptor { chain ->
-                val token = runBlocking { userPreference.getSession().first().token }
+                val token = runBlocking { sessionManager.getAuthToken() }
                 val req = chain.request().newBuilder()
                     .addHeader("Authorization", "Bearer $token")
                     .build()
