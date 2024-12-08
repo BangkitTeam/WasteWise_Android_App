@@ -6,17 +6,16 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.team.wastewise.R
-import com.team.wastewise.data.preference.UserPreference
 import com.team.wastewise.data.remote.retrofit.ApiConfig
 import com.team.wastewise.databinding.ActivitySettingBinding
-import com.team.wastewise.data.preference.dataStore // Import the dataStore extension property
+import com.team.wastewise.pref.SessionManager
 
 class SettingActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingBinding
 
     private val settingViewModel: SettingViewModel by viewModels {
-        val userPreference = UserPreference.getInstance(applicationContext.dataStore)
-        val apiService = ApiConfig.getApiService(userPreference)
+        val sessionManager = SessionManager(applicationContext)
+        val apiService = ApiConfig.getApiService(sessionManager)
         SettingViewModelFactory(apiService)
     }
 

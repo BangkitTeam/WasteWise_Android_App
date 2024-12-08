@@ -1,17 +1,23 @@
 package com.team.wastewise.data.remote.retrofit
 
+import com.team.wastewise.data.remote.response.AddFavoriteRequest
+import com.team.wastewise.data.remote.response.FavoriteData
+import com.team.wastewise.data.remote.response.FavoriteItem
+import com.team.wastewise.data.remote.response.FavoriteResponse
 import com.team.wastewise.data.remote.response.FileUploadResponse
 import com.team.wastewise.data.remote.response.LoginResponse
 import com.team.wastewise.data.remote.response.RegisterResponse
 import com.team.wastewise.data.remote.response.UserSettingsResponse
 import okhttp3.MultipartBody
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
 
 interface ApiService {
     @Multipart
@@ -50,4 +56,15 @@ interface ApiService {
         val email: String,
         val password: String
     )
+
+    @GET("/user/favorite")
+    suspend fun getAllFavorite(): FavoriteResponse
+
+    @POST("/user/favorite")
+    suspend fun addFavorite(): AddFavoriteRequest
+
+    @DELETE("/user/favorite/{id}")
+    suspend fun deleteFavorite(
+        @Path("id") id: Int
+    ): FavoriteItem
 }
