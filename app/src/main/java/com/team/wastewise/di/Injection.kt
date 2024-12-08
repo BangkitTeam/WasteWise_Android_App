@@ -3,6 +3,7 @@ package com.team.wastewise.di
 import android.content.Context
 import com.team.wastewise.data.preference.UserPreference
 import com.team.wastewise.data.preference.dataStore
+import com.team.wastewise.data.remote.FavoriteRepository
 import com.team.wastewise.data.remote.Repository
 import com.team.wastewise.data.remote.UploadRepository
 import com.team.wastewise.data.remote.retrofit.ApiConfig
@@ -24,5 +25,11 @@ object Injection {
 
         // Return a singleton instance of Repository with ApiService.
         return Repository.getInstance(apiService)
+    }
+
+    fun provideFavoriteRepository(context: Context): FavoriteRepository {
+        val userPreference = UserPreference.getInstance(context.dataStore)
+        val apiService = ApiConfig.getApiService(userPreference)
+        return FavoriteRepository.getInstance(apiService)
     }
 }

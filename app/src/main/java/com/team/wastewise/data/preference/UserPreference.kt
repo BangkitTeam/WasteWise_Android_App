@@ -28,7 +28,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             UserModel(
                 preferences[EMAIL_KEY] ?: "",
                 //Hard Code user Token
-                preferences[TOKEN_KEY] ?: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJkaXJhIiwiZW1haWwiOiJrdWt1aGgua3NAZ21haWwuY29tIiwiaWF0IjoxNzMzNDk4NjY3LCJleHAiOjE3MzM1ODUwNjd9.fAZck4pf7bUQv7Qjvyi1nhzwfZbCNPKdiJlV5ZyDkvI",
+                preferences[TOKEN_KEY] ?: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJkaXJhIiwiZW1haWwiOiJrdWt1aGgua3NAZ21haWwuY29tIiwiaWF0IjoxNzMzNjU3NTYzLCJleHAiOjE3MzM3NDM5NjN9.IF_bmoUBY6VLteKfyy7EyY7WUsSjUK-PfKOomefU0vg",
                 preferences[IS_LOGIN_KEY] ?: false
             )
         }
