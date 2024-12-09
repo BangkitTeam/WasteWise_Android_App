@@ -36,7 +36,6 @@ class SettingEditRepository private constructor(
         }
     }
 
-
     // Singleton pattern to provide a single instance of the Repository
     companion object {
         @Volatile
