@@ -73,6 +73,7 @@
     <string name="account_information">Account Information</string>
     <string name="click_edit_to_update_data">Click edit to update data</string>
     <string name="edit">Edit</string>
+    <string name="save">Save</string>
     <string name="change_the_data_in_provide_form">Change the data in provide form</string>
     <string name="insert_new_password">Insert New Password</string>
     <string name="insert_new_email">Insert New Email</string>
@@ -142,6 +143,10 @@ You have the right to request the deletion of your data at any time by contactin
     <string name="nothing_to_show">Nothing to Show</string>
     <string name="account_info">Account Information</string>
     <string name="account_info_description">Click edit to update data</string>
+
+    <string name="edit_data">Edit Data</string>
+    <string name="edit_data_description">Change the data in provide form</string>
+
     <string name="image_detail_recomendation">image_detail_recomendation</string>
     <string name="favorite_btn">favorite_btn</string>
     <string name="detail">Detail Recomendation</string>
