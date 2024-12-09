@@ -1,6 +1,7 @@
 package com.team.wastewise.data.remote.retrofit
 
 import com.team.wastewise.data.remote.response.AddFavoriteRequest
+import com.team.wastewise.data.remote.response.AddFavoriteResponse
 import com.team.wastewise.data.remote.response.FavoriteData
 import com.team.wastewise.data.remote.response.FavoriteItem
 import com.team.wastewise.data.remote.response.FavoriteResponse
@@ -61,7 +62,9 @@ interface ApiService {
     suspend fun getAllFavorite(): FavoriteResponse
 
     @POST("/user/favorite")
-    suspend fun addFavorite(): AddFavoriteRequest
+    suspend fun addFavorite(
+        @Body addFavoriteRequest: AddFavoriteRequest
+    ): AddFavoriteResponse
 
     @DELETE("/user/favorite/{id}")
     suspend fun deleteFavorite(

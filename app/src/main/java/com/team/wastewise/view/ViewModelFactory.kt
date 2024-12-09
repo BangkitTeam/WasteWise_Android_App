@@ -26,7 +26,7 @@ class ViewModelFactory(
                 ResultViewModel() as T
             }
             modelClass.isAssignableFrom(DetailRecommendationViewModel::class.java) -> {
-                DetailRecommendationViewModel() as T
+                DetailRecommendationViewModel(favoriteRepository) as T
             }
             modelClass.isAssignableFrom(FavoriteViewModel::class.java) -> {
                 FavoriteViewModel(favoriteRepository) as T

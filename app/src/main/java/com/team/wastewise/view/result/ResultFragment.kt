@@ -33,6 +33,8 @@ class ResultFragment : Fragment(), ResultAdapter.OnItemClickListener {
     // Adapter for displaying a list of recommendations in the RecyclerView.
     private val adapter = ResultAdapter(this)
 
+    private var data: Data? = null
+
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -58,7 +60,7 @@ class ResultFragment : Fragment(), ResultAdapter.OnItemClickListener {
         binding.resultRecyclerView.adapter = adapter
 
         // Retrieve data passed through navigation arguments.
-        val data = arguments?.getParcelable<Data>("data")
+        data = arguments?.getParcelable("data")
         data?.let { resultData ->
             viewModel.setData(resultData) // Update ViewModel with the new data
         }
@@ -142,6 +144,7 @@ class ResultFragment : Fragment(), ResultAdapter.OnItemClickListener {
     override fun onItemClick(result: Recommendation) {
         val bundle = Bundle().apply {
             putParcelable("recommendation_data", result)
+            putInt("userId", data?.user_id ?: -1)
         }
         findNavController().navigate(R.id.action_navigation_result_to_navigation_detail_recommendation, bundle)
     }
