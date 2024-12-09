@@ -93,7 +93,6 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginHorizontal="@dimen/margin_large"
-
         android:layout_marginTop="@dimen/margin_medium"
         android:hint="@string/password"
         app:boxStrokeColor="@color/black"
@@ -112,8 +111,7 @@
 
 
     <Button
-        android:id="@+id/registerButton"
-        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
+        android:id="@+id/btn_save"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_extra_large"
@@ -123,6 +121,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
