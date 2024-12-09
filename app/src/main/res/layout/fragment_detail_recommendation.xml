@@ -48,6 +48,7 @@
             android:src="@drawable/ic_bookmark_fill"
             android:layout_marginEnd="22dp"
             android:layout_marginTop="16dp"
+            android:visibility="invisible"
             app:layout_constraintTop_toTopOf="@+id/iv_detail_recommend"
             app:layout_constraintEnd_toEndOf="@+id/iv_detail_recommend" />
 

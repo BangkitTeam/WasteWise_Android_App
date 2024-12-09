@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -55,21 +56,13 @@ import com.team.wastewise.view.ViewModelFactory
             }
             val userId = arguments?.getInt("userId")
 
-//            if (viewModel.isFavorite(data?.id)) {
-//                showFavoriteFillButton()
-//            } else {
-//                showFavoriteOutlineButton()
-//            }
-
             binding.favButton.setOnClickListener {
                 val userRecommendationId = data?.id
-                if (userId != null) {
-                    if (userRecommendationId != null) {
-                        viewModel.addFavorite(userId, userRecommendationId)
-                    }
+                if (userId != null && userRecommendationId != null) {
+                    viewModel.addFavorite(userId, userRecommendationId)
                 }
-                binding.favButton.visibility = View.GONE
-                binding.favButtonFill.visibility = View.VISIBLE
+//                binding.favButton.visibility = View.GONE
+//                binding.favButtonFill.visibility = View.VISIBLE
             }
 
             observeViewModel()
@@ -83,6 +76,18 @@ import com.team.wastewise.view.ViewModelFactory
                     Glide.with(requireActivity())
                         .load(resultData.imageUrl)
                         .into(binding.ivDetailRecommend)
+                }
+            }
+            viewModel.addFavoriteResult.observe(viewLifecycleOwner) { result ->
+                result.onSuccess {
+                    showFavoriteFillButton()
+                }.onFailure { error ->
+                    if (error.message == "Favorite already exists") {
+                        showFavoriteOutlineButton()
+                        Toast.makeText(requireContext(), "Favorite already exists", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(requireContext(), "Failed to add favorite", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }

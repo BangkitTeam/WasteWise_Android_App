@@ -9,6 +9,7 @@ import com.team.wastewise.data.remote.response.AddFavoriteRequest
 import com.team.wastewise.data.remote.response.FavoriteItem
 import com.team.wastewise.data.remote.response.Recommendation
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class DetailRecommendationViewModel(
     private val favoriteRepository: FavoriteRepository // Repository to handle image upload operations.
@@ -32,8 +33,16 @@ class DetailRecommendationViewModel(
                 val request = AddFavoriteRequest(userId, userRecommendationId)
                 val response = favoriteRepository.addFavorite(request)
                 _addFavoriteResult.postValue(response)
+
+            } catch (e: HttpException) {
+                if (e.code() == 400) {
+                    _addFavoriteResult.postValue(Result.failure(Throwable("Favorite already exists")))
+                } else {
+                    _addFavoriteResult.postValue(Result.failure(e))
+                }
             } catch (e: Exception) {
                 _addFavoriteResult.postValue(Result.failure(e))
+
             }
         }
     }
