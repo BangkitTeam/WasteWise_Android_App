@@ -48,7 +48,8 @@ data class Data(
 	val image_url: String,
 	val confidence: Int,
 	val prediction: String,
-	val recommendations: List<Recommendation>
+	val recommendations: List<Recommendation>,
+	val userRecommendationId: IntArray
 ): Parcelable
 
 @Parcelize
@@ -56,5 +57,6 @@ data class Recommendation(
 	val id: Int,
 	val title: String,
 	val description: String,
-	val imageUrl: String
+	val imageUrl: String,
+	val tutorialUrl: String
 ): Parcelable

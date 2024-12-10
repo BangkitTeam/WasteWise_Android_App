@@ -22,10 +22,10 @@ class FavoriteRepository private constructor(
         }
     }
 
-    suspend fun addFavorite(request: AddFavoriteRequest): Result<FavoriteItem> {
+    suspend fun addFavorite(userRecommendationId: Int): Result<Unit> {
         return try {
-            val response = apiService.addFavorite(request)
-            Result.success(response.data)
+            apiService.addFavorite(userRecommendationId)
+            Result.success(Unit)
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, FavoriteResponse::class.java)
