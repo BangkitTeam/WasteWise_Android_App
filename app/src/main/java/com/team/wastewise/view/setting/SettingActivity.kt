@@ -1,5 +1,6 @@
 package com.team.wastewise.view.setting
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -9,6 +10,7 @@ import com.team.wastewise.R
 import com.team.wastewise.data.remote.retrofit.ApiConfig
 import com.team.wastewise.databinding.ActivitySettingBinding
 import com.team.wastewise.pref.SessionManager
+import com.team.wastewise.view.settingedit.SettingEditActivity
 
 class SettingActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingBinding
@@ -26,6 +28,8 @@ class SettingActivity : AppCompatActivity() {
 
         setupToolbar()
         setupObservers()
+
+        moveToEditData()
 
         // Fetch settings
         settingViewModel.fetchUserSettings()
@@ -63,6 +67,13 @@ class SettingActivity : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun moveToEditData() {
+        binding.btnEdit.setOnClickListener {
+            val intent = Intent(this, SettingEditActivity::class.java)
+            startActivity(intent)
         }
     }
 }
