@@ -2,9 +2,11 @@
     <string name="app_name">WasteWise</string>
     <string name="header_login">Login To Your Account</string>
     <string name="email_address">Email Address</string>
+    <string name="email_address_placeholder">Insert New Email Address</string>
     <string name="image_login">image_login</string>
     <string name="login_btn_text">Login</string>
     <string name="password">Password</string>
+    <string name="password_placeholder">Insert New Password</string>
     <string name="not_a_member">Not a member?</string>
     <string name="register_now">Register Now</string>
     <!-- Strings used for fragments for navigation -->
@@ -52,6 +54,7 @@
     <string name="image_register">image_register</string>
     <string name="header_register">Create an Account</string>
     <string name="username">Username</string>
+    <string name="username_placeholder">Insert New Username</string>
     <string name="button_register_text">Create Account</string>
     <string name="already_have_account">Already have Account?</string>
     <string name="bottom_register_text">By clicking Create Account you agree to Recognizes</string>
