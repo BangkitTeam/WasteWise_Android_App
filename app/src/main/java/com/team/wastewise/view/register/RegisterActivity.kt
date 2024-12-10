@@ -79,7 +79,6 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 
     private fun isInputValid(name: String, email: String, password: String): Boolean {
