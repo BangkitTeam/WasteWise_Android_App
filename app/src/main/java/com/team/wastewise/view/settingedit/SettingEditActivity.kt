@@ -44,6 +44,7 @@ class SettingEditActivity : AppCompatActivity() {
         // Initialize SessionManager and get user token
         sessionManager = SessionManager(this)
         val token = sessionManager.getAuthToken().toString()
+//        val token = "Bearer ${sessionManager.getAuthToken().toString()}"
 
         moveToMain()
 
