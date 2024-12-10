@@ -11,6 +11,7 @@ import com.team.wastewise.data.remote.response.RegisterResponse
 import com.team.wastewise.data.remote.response.UpdateUserResponse
 import com.team.wastewise.data.remote.response.UserSettingsResponse
 import okhttp3.MultipartBody
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.Field
@@ -76,10 +77,10 @@ interface ApiService {
     @GET("/user/favorite")
     suspend fun getAllFavorite(): FavoriteResponse
 
-    @POST("/user/favorite")
+    @POST("/user/favorite/mark-favorite/{userRecommendationId}")
     suspend fun addFavorite(
-        @Body addFavoriteRequest: AddFavoriteRequest
-    ): AddFavoriteResponse
+        @Path("userRecommendationId") userRecommendationId: Int,
+    ): Response<Unit>
 
     @DELETE("/user/favorite/{id}")
     suspend fun deleteFavorite(

@@ -142,9 +142,10 @@ class ResultFragment : Fragment(), ResultAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(result: Recommendation) {
+        val userRecommendationIds = data?.userRecommendationId?.toList()?.toIntArray()
         val bundle = Bundle().apply {
             putParcelable("recommendation_data", result)
-            putInt("userId", data?.user_id ?: -1)
+            putIntArray("userRecommendId", userRecommendationIds)
         }
         findNavController().navigate(R.id.action_navigation_result_to_navigation_detail_recommendation, bundle)
     }

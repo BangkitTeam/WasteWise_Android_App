@@ -152,5 +152,6 @@ You have the right to request the deletion of your data at any time by contactin
     <string name="detail">Detail Recomendation</string>
     <string name="favorite_recycle_item_recommendation">Favorite Recycle Item Recommendation</string>
     <string name="belum_ada_data">Belum Ada Data Favorite</string>
+    <string name="video_tutorial">Video Tutorial:</string>
 
 </resources>

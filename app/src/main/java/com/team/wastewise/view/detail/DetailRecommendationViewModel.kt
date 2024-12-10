@@ -1,5 +1,6 @@
 package com.team.wastewise.view.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,32 +20,29 @@ class DetailRecommendationViewModel(
     private var _recommendation = MutableLiveData<Recommendation?>()
     val recommendation: LiveData<Recommendation?> = _recommendation
 
-    private val _addFavoriteResult = MutableLiveData<Result<FavoriteItem>>()
-    val addFavoriteResult: LiveData<Result<FavoriteItem>> = _addFavoriteResult
+    private val _addFavoriteResult = MutableLiveData<Result<Unit>>()
+    val addFavoriteResult: LiveData<Result<Unit>> = _addFavoriteResult
 
     // Sets the primary detail data.
     fun setData(data: Recommendation) {
         _recommendation.value = data
     }
 
-    fun addFavorite(userId: Int, userRecommendationId: Int) {
+    fun addFavorite(userRecommendationId: Int) {
         viewModelScope.launch {
             try {
-                val request = AddFavoriteRequest(userId, userRecommendationId)
-                val response = favoriteRepository.addFavorite(request)
+//                val request = AddFavoriteRequest(userRecommendationId)
+                val response = favoriteRepository.addFavorite(userRecommendationId)
+                response.onSuccess {
+                    Log.d("ViewModel", "Favorite successfully added")
+                }.onFailure {
+                    Log.e("ViewModel", "Error adding favorite: ${it.message}")
+                }
                 _addFavoriteResult.postValue(response)
 
-            } catch (e: HttpException) {
-                if (e.code() == 400) {
-                    _addFavoriteResult.postValue(Result.failure(Throwable("Favorite already exists")))
-                } else {
-                    _addFavoriteResult.postValue(Result.failure(e))
-                }
             } catch (e: Exception) {
-                _addFavoriteResult.postValue(Result.failure(e))
-
+                Log.e("ViewModel", "Unexpected exception: ${e.message}")
             }
         }
     }
-
 }
