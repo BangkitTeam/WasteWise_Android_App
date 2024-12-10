@@ -52,7 +52,6 @@ interface ApiService {
     // Endpoint to edit settings by Token
     @POST("user/settings")
     suspend fun editUserSettings(
-        @Header("Authorization") token: String,  // Bearer token
         @Body request: EditUserRequest
     ): UpdateUserResponse
 

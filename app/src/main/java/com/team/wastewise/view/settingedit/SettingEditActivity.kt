@@ -45,7 +45,6 @@ class SettingEditActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
         val token = sessionManager.getAuthToken().toString()
 //        val token = "Bearer ${sessionManager.getAuthToken().toString()}"
-
         moveToMain()
 
         // Set click listener for the "Save" button to initiate save logic.
