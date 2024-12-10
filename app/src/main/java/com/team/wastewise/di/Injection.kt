@@ -13,7 +13,7 @@ import com.team.wastewise.pref.SessionManager
 object Injection {
     fun provideUploadRepository(context: Context): UploadRepository {
         val sessionManager = SessionManager(context)
-        val apiService = ApiConfig.getApiService(sessionManager)
+        val apiService = ApiConfig.getApiService(sessionManager, context)
         return UploadRepository.getInstance(apiService)
     }
 
@@ -22,7 +22,7 @@ object Injection {
         val sessionManager = SessionManager(context)
 
         // Initialize ApiService using ApiConfig.
-        val apiService = ApiConfig.getApiService(sessionManager)
+        val apiService = ApiConfig.getApiService(sessionManager, context)
 
         // Return a singleton instance of Repository with ApiService.
         return Repository.getInstance(apiService)
@@ -33,7 +33,7 @@ object Injection {
         val sessionManager = SessionManager(context)
 
         // Initialize ApiService using ApiConfig.
-        val apiService = ApiConfig.getApiService(sessionManager)
+        val apiService = ApiConfig.getApiService(sessionManager, context)
 
         // Return a singleton instance of Repository with ApiService.
         return SettingEditRepository.getInstance(apiService)
@@ -41,7 +41,7 @@ object Injection {
 
     fun provideFavoriteRepository(context: Context): FavoriteRepository {
         val sessionManager = SessionManager(context)
-        val apiService = ApiConfig.getApiService(sessionManager)
+        val apiService = ApiConfig.getApiService(sessionManager, context)
         return FavoriteRepository.getInstance(apiService)
     }
 }
