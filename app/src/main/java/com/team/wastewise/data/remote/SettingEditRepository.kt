@@ -22,7 +22,7 @@ class SettingEditRepository private constructor(
                 )
 
                 // Make the network request using Retrofit
-                val response = apiService.editUserSettings(token, request)
+                val response = apiService.editUserSettings(request)
 
                 // Return success with the response
                 Result.Success(response)

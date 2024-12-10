@@ -17,7 +17,7 @@ class SettingActivity : AppCompatActivity() {
 
     private val settingViewModel: SettingViewModel by viewModels {
         val sessionManager = SessionManager(applicationContext)
-        val apiService = ApiConfig.getApiService(sessionManager)
+        val apiService = ApiConfig.getApiService(sessionManager, this)
         SettingViewModelFactory(apiService)
     }
 
