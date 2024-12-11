@@ -38,7 +38,7 @@
         android:id="@+id/nameEditTextLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_extra_large"
         android:layout_marginTop="@dimen/margin_large"
         android:layout_marginEnd="@dimen/margin_extra_large"
@@ -52,7 +52,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -61,7 +61,7 @@
         android:id="@+id/emailEditTextLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginEnd="48dp"
@@ -75,7 +75,7 @@
         <com.team.wastewise.view.customtextfield.EmailField
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -84,7 +84,7 @@
         android:id="@+id/passwordEditTextLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginEnd="48dp"
@@ -98,7 +98,7 @@
         <com.team.wastewise.view.customtextfield.PasswordField
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
