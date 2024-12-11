@@ -74,7 +74,12 @@ class ProfileActivity : AppCompatActivity() {
 
         // Logout button action
         binding.btnLogout.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            val sessionManager = SessionManager(this)
+            sessionManager.clearAuthToken() // Clear the user's authentication token
+
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
             finish()
         }
     }
