@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="96dp"
+        android:textSize="@dimen/text_size_body"
         android:text="@string/favorite_recycle_item_recommendation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
