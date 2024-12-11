@@ -23,3 +23,8 @@ data class AddFavoriteRequest(
 	val userId: Int,
 	val userRecommendationId: Int
 )
+
+data class AddFavoriteResponse(
+	val data: FavoriteItem,
+	val message: String
+)

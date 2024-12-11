@@ -40,6 +40,18 @@
             app:layout_constraintTop_toTopOf="@+id/iv_detail_recommend"
             app:layout_constraintEnd_toEndOf="@+id/iv_detail_recommend" />
 
+        <ImageView
+            android:id="@+id/fav_button_fill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/favorite_btn"
+            android:src="@drawable/ic_bookmark_fill"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="16dp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="@+id/iv_detail_recommend"
+            app:layout_constraintEnd_toEndOf="@+id/iv_detail_recommend" />
+
         <TextView
             android:id="@+id/tv_detail_title"
             android:layout_width="match_parent"
@@ -63,6 +75,33 @@
             app:layout_constraintStart_toStartOf="@+id/tv_detail_title"
             app:layout_constraintEnd_toEndOf="@+id/tv_detail_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_detail_title" />
+
+        <TextView
+            android:id="@+id/tv_detail_tutor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+            android:text="@string/video_tutorial"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_desc"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_detail_link_tutor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:layout_marginEnd="16dp"
+            android:focusable="true"
+            app:layout_constraintStart_toStartOf="@+id/tv_detail_title"
+            app:layout_constraintEnd_toEndOf="@+id/tv_detail_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_tutor" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"

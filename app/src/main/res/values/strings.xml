@@ -2,9 +2,11 @@
     <string name="app_name">WasteWise</string>
     <string name="header_login">Login To Your Account</string>
     <string name="email_address">Email Address</string>
+    <string name="email_address_placeholder">Insert New Email Address</string>
     <string name="image_login">image_login</string>
     <string name="login_btn_text">Login</string>
     <string name="password">Password</string>
+    <string name="password_placeholder">Insert New Password</string>
     <string name="not_a_member">Not a member?</string>
     <string name="register_now">Register Now</string>
     <!-- Strings used for fragments for navigation -->
@@ -52,6 +54,7 @@
     <string name="image_register">image_register</string>
     <string name="header_register">Create an Account</string>
     <string name="username">Username</string>
+    <string name="username_placeholder">Insert New Username</string>
     <string name="button_register_text">Create Account</string>
     <string name="already_have_account">Already have Account?</string>
     <string name="bottom_register_text">By clicking Create Account you agree to Recognizes</string>
@@ -73,7 +76,11 @@
     <string name="account_information">Account Information</string>
     <string name="click_edit_to_update_data">Click edit to update data</string>
     <string name="edit">Edit</string>
+<<<<<<< HEAD
     <string name="history_data_not_available">Data history tidak tersedia.</string>
+=======
+    <string name="save">Save</string>
+>>>>>>> 37d435f0ddc12287cb3b8381b5838479d24feb85
     <string name="change_the_data_in_provide_form">Change the data in provide form</string>
     <string name="insert_new_password">Insert New Password</string>
     <string name="insert_new_email">Insert New Email</string>
@@ -143,10 +150,15 @@ You have the right to request the deletion of your data at any time by contactin
     <string name="nothing_to_show">Nothing to Show</string>
     <string name="account_info">Account Information</string>
     <string name="account_info_description">Click edit to update data</string>
+
+    <string name="edit_data">Edit Data</string>
+    <string name="edit_data_description">Change the data in provide form</string>
+
     <string name="image_detail_recomendation">image_detail_recomendation</string>
     <string name="favorite_btn">favorite_btn</string>
     <string name="detail">Detail Recomendation</string>
     <string name="favorite_recycle_item_recommendation">Favorite Recycle Item Recommendation</string>
     <string name="belum_ada_data">Belum Ada Data Favorite</string>
+    <string name="video_tutorial">Video Tutorial:</string>
 
 </resources>

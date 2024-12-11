@@ -64,4 +64,7 @@ dependencies {
     implementation(libs.glide)
     implementation (libs.circleimageview)
 
+    debugImplementation (libs.chucker.library)
+    releaseImplementation (libs.library.no.op)
+
 }

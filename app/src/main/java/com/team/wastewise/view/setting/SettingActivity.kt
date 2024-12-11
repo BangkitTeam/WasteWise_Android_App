@@ -1,21 +1,26 @@
 package com.team.wastewise.view.setting
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.team.wastewise.R
 import com.team.wastewise.data.remote.retrofit.ApiConfig
 import com.team.wastewise.databinding.ActivitySettingBinding
 import com.team.wastewise.pref.SessionManager
+import com.team.wastewise.view.settingedit.SettingEditActivity
 
 class SettingActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingBinding
 
     private val settingViewModel: SettingViewModel by viewModels {
         val sessionManager = SessionManager(applicationContext)
-        val apiService = ApiConfig.getApiService(sessionManager)
+        val apiService = ApiConfig.getApiService(sessionManager, this)
         SettingViewModelFactory(apiService)
     }
 
@@ -23,9 +28,18 @@ class SettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        enableEdgeToEdge()
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
 
         setupToolbar()
         setupObservers()
+
+        moveToEditData()
 
         // Fetch settings
         settingViewModel.fetchUserSettings()
@@ -46,7 +60,7 @@ class SettingActivity : AppCompatActivity() {
         settingViewModel.userSettings.observe(this) { settings ->
             binding.usernameText.setText(settings.username)
             binding.emailText.setText(settings.email)
-            binding.passwordText.setText(settings.password)
+//            binding.passwordText.setText(settings.password)
         }
 
         settingViewModel.errorMessage.observe(this) { error ->
@@ -63,6 +77,13 @@ class SettingActivity : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun moveToEditData() {
+        binding.btnEdit.setOnClickListener {
+            val intent = Intent(this, SettingEditActivity::class.java)
+            startActivity(intent)
         }
     }
 }

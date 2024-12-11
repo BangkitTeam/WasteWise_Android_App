@@ -1,4 +1,4 @@
-package com.team.wastewise.view.register
+package com.team.wastewise.view.settingedit
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,73 +9,85 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.team.wastewise.MainActivity
 import com.team.wastewise.R
-import com.team.wastewise.databinding.ActivityRegisterBinding
-import com.team.wastewise.view.login.LoginActivity
+import com.team.wastewise.databinding.ActivitySettingEditBinding
+import com.team.wastewise.pref.SessionManager
 import com.team.wastewise.data.Result
+import com.team.wastewise.view.login.LoginActivity
 
-class RegisterActivity : AppCompatActivity() {
-     private lateinit var binding: ActivityRegisterBinding
+class SettingEditActivity : AppCompatActivity() {
 
-    // Use the ViewModelFactory to provide an instance of RegisterViewModel.
-    private val registerViewModel: RegisterViewModel by viewModels {
-        RegisterFactory.getInstance(this)
+    private lateinit var binding: ActivitySettingEditBinding
+    private lateinit var sessionManager: SessionManager
+    private val viewModel: SettingEditViewModel by viewModels {
+        SettingEditFactory.getInstance(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater)
         enableEdgeToEdge()
+        binding = ActivitySettingEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Set up the toolbar
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        moveToLogin()
+        // Initialize SessionManager and get user token
+        sessionManager = SessionManager(this)
+        val token = sessionManager.getAuthToken().toString()
+//        val token = "Bearer ${sessionManager.getAuthToken().toString()}"
+        moveToMain()
 
-        // Set click listener for the "Register" button to initiate registration logic.
-        binding.registerButton.setOnClickListener {
+        // Set click listener for the "Save" button to initiate save logic.
+        binding.btnSave.setOnClickListener {
             val username = binding.usernameEditText.text.toString().trim()
             val email = binding.emailEditText.text.toString().trim()
             val password = binding.passwordEditText.text.toString().trim()
 
-            // Validate input before proceeding with registration.
+            // Validate input before proceeding with save.
             if (isInputValid(username, email, password)) {
-                registerViewModel.register(username, email, password)
+                viewModel.updateUserSettings(token, username, email, password)
             }
         }
 
-        // Observe changes from the ViewModel.
+        // Set up ViewModel observers for live data
         observeViewModel()
     }
 
+
+
     private fun observeViewModel() {
-        // Observe loading state to display/hide the loading indicator.
-        registerViewModel.isLoading.observe(this) { isLoading ->
+        viewModel.isLoading.observe(this) { isLoading ->
             showLoading(isLoading)
         }
 
-        // Observe registration result and handle success/error scenarios.
-        registerViewModel.registerResult.observe(this) { result ->
+        viewModel.updateUser.observe(this) { result ->
             when (result) {
                 is Result.Loading -> showLoading(true)
                 is Result.Success -> {
                     showLoading(false)
 
                     // Show a Toast message for success
-                    Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Edit data successful!", Toast.LENGTH_SHORT).show()
 
                     // Navigate to LoginActivity on successful registration.
-                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                    val intent = Intent(this@SettingEditActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
                 is Result.Error -> {
                     showLoading(false)
                     // Show a Toast message for error
-                    Toast.makeText(this, "Registration failed: ${result.error}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Edit data failed: ${result.error}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -116,9 +128,9 @@ class RegisterActivity : AppCompatActivity() {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    private fun moveToLogin() {
-        binding.login.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+    private fun moveToMain() {
+        binding.btnSave.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

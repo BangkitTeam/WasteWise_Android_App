@@ -7,6 +7,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import com.team.wastewise.data.Result
 import com.team.wastewise.data.remote.response.LoginResponse
+import com.team.wastewise.data.remote.response.UpdateUserResponse
 
 class Repository private constructor(
     private val apiService: ApiService
@@ -62,7 +63,6 @@ class Repository private constructor(
             }
         }
     }
-
 
     // Singleton pattern to provide a single instance of the Repository
     companion object {

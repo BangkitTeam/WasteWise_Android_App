@@ -1,10 +1,14 @@
 package com.team.wastewise.view.detail
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -40,7 +44,6 @@ class DetailRecommendationFragment : Fragment() {
         val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
         bottomNavigationView.visibility = View.GONE
 
-
         binding.toolbar.apply {
             title = "Detail Recommendation"
             setNavigationIcon(R.drawable.ic_back)
@@ -54,6 +57,16 @@ class DetailRecommendationFragment : Fragment() {
         data?.let { resultData ->
             viewModel.setData(resultData) // Update ViewModel with the new data
         }
+        val userRecommendId = arguments?.getIntArray("userRecommendId")
+
+        binding.favButton.setOnClickListener {
+            if (userRecommendId != null && userRecommendId.isNotEmpty()) {
+                val userRecommendationId = userRecommendId[0]
+                Log.d("DetailFragment", "userRecommendationId: $userRecommendationId")
+                viewModel.addFavorite(userRecommendationId)
+                Log.d("DetailFragment", "userRecommendationId: $userRecommendId")
+            }
+        }
 
         observeViewModel()
     }
@@ -66,8 +79,42 @@ class DetailRecommendationFragment : Fragment() {
                 Glide.with(requireActivity())
                     .load(resultData.imageUrl)
                     .into(binding.ivDetailRecommend)
+                binding.tvDetailLinkTutor.apply {
+                    text = resultData.tutorialUrl
+                    setOnClickListener {
+                        val url = resultData.tutorialUrl
+                        if (url.isNotEmpty()) {
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                            context.startActivity(intent)
+                        } else {
+                            Toast.makeText(context, "URL tidak tersedia", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
             }
         }
+        viewModel.addFavoriteResult.observe(viewLifecycleOwner) { result ->
+            result.onSuccess {
+                showFavoriteFillButton()
+            }.onFailure { error ->
+                if (error.message == "Favorite already exists") {
+                    showFavoriteOutlineButton()
+                    Toast.makeText(requireContext(), "Favorite already exists", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Failed to add favorite", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun showFavoriteOutlineButton() {
+        binding.favButton.visibility = View.VISIBLE
+        binding.favButtonFill.visibility = View.GONE
+    }
+
+    private fun showFavoriteFillButton() {
+        binding.favButton.visibility = View.GONE
+        binding.favButtonFill.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
