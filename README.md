@@ -22,7 +22,6 @@ This repository contains the **Mobile Development** component of **WasteWise**, 
    - Detailed insights into each craft recommendation.  
 
 ### **Pending Development:**  
-- **Offline Mode:** Enable access to core functionalities without an internet connection.  
 - **History:** Provide users with a record of past waste classifications.  
 - **Favorites:** Allow users to bookmark craft recommendations for easy retrieval.  
 
