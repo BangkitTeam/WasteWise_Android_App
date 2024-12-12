@@ -1,7 +1,6 @@
 package com.team.wastewise.data.remote.retrofit
 
 import android.content.Context
-import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.team.wastewise.data.preference.UserPreference
 import com.team.wastewise.pref.SessionManager
 import kotlinx.coroutines.flow.first
@@ -16,8 +15,10 @@ import java.util.concurrent.TimeUnit
 class ApiConfig {
     companion object {
         fun getApiService(sessionManager: SessionManager, context: Context) : ApiService {
+
             // ChuckerInterceptor requires Context to be initialized
-            val chuckerInterceptor = ChuckerInterceptor.Builder(context).build()
+//            val chuckerInterceptor = ChuckerInterceptor.Builder(context).build()
+
 
             val loggingInterceptor =
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -29,7 +30,7 @@ class ApiConfig {
                 chain.proceed(req)
             }
             val client = OkHttpClient.Builder()
-                .addInterceptor(chuckerInterceptor)
+//                .addInterceptor(chuckerInterceptor)
                 .addInterceptor(loggingInterceptor)
                 .addInterceptor(authInterceptor)
                 .connectTimeout(30, TimeUnit.SECONDS)

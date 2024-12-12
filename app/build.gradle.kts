@@ -63,8 +63,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.glide)
     implementation (libs.circleimageview)
-
+/*
     debugImplementation (libs.chucker.library)
-    releaseImplementation (libs.library.no.op)
+    releaseImplementation (libs.library.no.op)*/
 
 }
