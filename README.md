@@ -55,7 +55,7 @@ This repository contains the **Mobile Development** component of **WasteWise**, 
 ### **Steps to Run:**  
 1. Clone this repository to your local machine:  
    ```bash  
-   git clone https://github.com/e-haikal/WasteWise-Mobile.git  
+   git clone https://github.com/BangkitTeam/WasteWise_Android_App  
    ```  
 
 2. Open the project in Android Studio.  
